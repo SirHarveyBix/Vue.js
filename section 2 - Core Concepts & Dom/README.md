@@ -30,22 +30,38 @@ structure classique d'un projet Vue: app.js
 
 ```js
 const app = Vue.createApp({
-  data() { // Obligatoire
+  data() { 
     return {
-      courseGoalA: 'Bienvenu sur Vue',
-      courseGoalB: "Tout s'est bien passé",
-    };
+      // etat intial
+      name: 'pick-up'
+    }
   },
-  methods: { // Obligatoire
-    outputGoal() {
-      const randomNumer = Math.random()
-      if (randomNumer < 0.5) {
-        return this.courseGoalA
-      } else {
-        return this.courseGoalB
-      }
+  watch: {
+    // s'active quand une proprié change
+    // utile pour les type 'non-data': requete http, etc..
+    counter(value) {
+      if (value > 50) {
+        const that = this
+        setTimeout(() => { that.counter = 0 }, 2000)
+      },
     },
   },
+  computed: {
+    // render uniquement quand la propriété change
+    // utilisé quand une data a besoin d'un autre data
+    //data bindig
+    setName(event) {
+      this.name = event.target.value;
+    },
+  },
+  methods: {
+    // render tout le composant quand un des fonction est appelée, utili pour les datas qui necessite une reevalutaion
+    //event binding or data bindig
+    setName(event) {
+      this.name = event.target.value;
+    },
+  },
+},
 })
 
 app.mount('#user-goal')
@@ -106,6 +122,7 @@ Vue nous permet d'ajouter des Modifyers après l'appel de la method, tels que `v
       <form v-on:submit.prevent="submitForm">
 ```
 
+**`v-on:click=`** peut etre remplacé par `@click=`
 par exemple pour le click, il existe 3 modifyers :
 
 - `.left`
@@ -129,6 +146,20 @@ par exemple pour le click, il existe 3 modifyers :
 - `v-on:input="setName($event, 'second argument')"`
 - `v-bind:value="name"`
 
-**`v-bind:`**
+**`v-bind:value=`** peut etre remplacé par `:value=`
 
 **_a construire_**
+
+## Computed properties
+
+[app.js](project2/app.js)
+`computed:`
+
+computed properties permet le _render_ de l'element uniqumement quand il est _pointé_
+
+```html
+      <p>Your Name : {{ fullname }}</p>
+      <p>Your Name : {{ outputFullname() }}</p>
+```
+
+on voit que ```fullname``` est _pointé_, contraiment a ```outputFullname()``` qui est _appelé_, c'ets donc mieux pour l'optimisation, il agira un peu comme un _`useEffect(() => {}, [])`_, il observe le changement de cette donnée
