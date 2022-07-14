@@ -112,4 +112,23 @@ par exemple pour le click, il existe 3 modifyers :
 - `.middle`
 - `.right`
 
-`.prevent` aura le meme effet que `event.preventDefault();`
+`.prevent` aura le meme effet que `event.preventDefault()`
+
+## binds & models
+
+**`v-model`** : _two ways binding_
+
+```html
+<input type="text" v-model="name" />
+<!--     ###     ###     ###     -->
+<input type="text" v-on:input="setName($event, 'second argument')" v-bind:value="name" />
+```
+
+`v-model="name"` est un raccourci pour :
+
+- `v-on:input="setName($event, 'second argument')"`
+- `v-bind:value="name"`
+
+**`v-bind:`**
+
+**_a construire_**

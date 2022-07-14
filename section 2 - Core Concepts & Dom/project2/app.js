@@ -3,7 +3,6 @@ const app = Vue.createApp({
     return {
       counter: 0,
       name: '',
-      confirmedName: '',
     };
   },
   methods: {
@@ -15,17 +14,17 @@ const app = Vue.createApp({
     },
     setName(event, secondArgument) {
       const name = event.target.value;
-      if (name == 'e') {
-        this.name = `${name} ${secondArgument}`;
-      }
+      // if (name == 'e') {
+      //   this.name = `${name} ${secondArgument}`;
+      // }
       this.name = name;
     },
     submitForm(event) {
       // event.preventDefault();
       alert('Submitted');
     },
-    confirmInput() {
-      this.confirmedName = this.name;
+    resetInput() {
+      this.name = '';
     },
   },
 });
