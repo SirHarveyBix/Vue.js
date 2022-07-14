@@ -14,7 +14,6 @@ il extister plusieurs moye, de faire des condition :
 <p v-else> des données existent</p>
 <p v-else-if="goals.length > 0">pareil</p>
 <p v-show="goals.length > 0">ce champ existe dans les deux cad le DOM</p>
-
 ```
 
 ## Boucles
