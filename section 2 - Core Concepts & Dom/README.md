@@ -52,3 +52,64 @@ app.mount('#user-goal')
 ```
 
 Les classes sont obligatoire.
+
+## Fonctions & arguments
+
+les fonctions sont accessible dans le HTML, de cette maniere :
+
+[index.html](project2/index.html)
+
+```html
+  <button v-on:click="addCount(5)">Add 5</button>
+  <input type="text" v-on:input="setName($event, 'second argument')" >
+```
+
+- `v-on:click` equivalent de onClick sur React.
+- `v-on:input` equivalent de onChange sur React.
+
+[app.js](project2/app.js)
+
+```js
+methods: {
+    addCount(number) {
+      this.counter = this.counter + number
+    },
+    setName(event, secondArgument) {
+      this.name = event.target.value
+      console.info(secondArgument)
+    },
+  },
+```
+
+les arguments son bien recupérés, **subtilité** pour `setName` qui recuperes 2 arguments, `event`, et `secondArgument`, par defaut Vue, recupere simplement event, de cette maniere :
+
+```html
+  <input type="text" v-on:input="setName" >
+```
+
+on lui passe `($event)` parce qu'ici il y a deux arguments
+dans le cas ou les arguments recupérés dans le HTML sont natif (_event_), mais que d'autres arguments sont passés, il faut alors ajouter `$`.
+
+```html
+  <input type="text" v-on:input="setName" >
+  <input type="text" v-on:input="setName($event)" >
+```
+
+sont tout les deux valide
+
+## Modifyers
+
+Vue nous permet d'ajouter des Modifyers après l'appel de la method, tels que `v-on:method.modifyer` :
+
+```html
+      <button v-on:click.right="reduceCount(5)">Remove 5</button>
+      <form v-on:submit.prevent="submitForm">
+```
+
+par exemple pour le click, il existe 3 modifyers :
+
+- `.left`
+- `.middle`
+- `.right`
+
+`.prevent` aura le meme effet que `event.preventDefault();`
