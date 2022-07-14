@@ -23,7 +23,7 @@ le seul moyen c'ets d'utiliser :
 - `v-for=`
 
 ```html  
- <li
+<li
   :key="goal"
   v-for="(goal, index) in goals"
   @click="removeGoal(index)"
