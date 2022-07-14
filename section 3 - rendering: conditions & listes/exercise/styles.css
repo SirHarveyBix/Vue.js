@@ -1,0 +1,80 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Jost', sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+header {
+  margin: 3rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: #1b995e;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  color: white;
+  text-align: center;
+}
+
+#assignment {
+  margin: 3rem;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  text-align: center;
+}
+
+#assignment h2 {
+  margin: 0 0 1rem 0;
+  border-bottom: 4px solid #ccc;
+  font-size: 2rem;
+  color: #1b995e;
+}
+
+#assignment ul {
+  margin: 1rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+#assignment li {
+  margin: 1rem 0;
+  padding: 0.5rem;
+  border-radius: 25px;
+  background-color: #8ddba4;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #1f1f1f;
+}
+
+#assignment input {
+  border: 1px solid #ccc;
+  font: inherit;
+}
+
+#assignment input:focus {
+  border-color: #1b995e;
+  outline: none;
+  background-color: #d7fdeb;
+}
+
+#assignment button {
+  padding: 0.05rem 1rem;
+  border: 1px solid #ff0077;
+  background-color: #ff0077;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
+  font: inherit;
+  color: white;
+  cursor: pointer;
+}
+
+#assignment button:hover,
+#assignment button:active {
+  border-color: #ec3169;
+  background-color: #ec3169;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+}
