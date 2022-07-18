@@ -24,3 +24,5 @@
 **Behind the scenes : [section 5 - behind the scenes](section%205%20-%20behind%20the%20scenes)**
 
 **Components : [section 6 - components](section%206%20-%20components)**
+
+**Developpement setup : [section 7 - developpement setup](section%207%20-%20developpement%20setup)**
