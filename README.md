@@ -24,3 +24,34 @@
 **Behind the scenes : [section 5 - behind the scenes](section%205%20-%20behind%20the%20scenes)**
 
 **Components : [section 6 - components](section%206%20-%20components)**
+
+**Developpement setup : [section 7 - developpement setup](section%207%20-%20developpement%20setup)**
+
+
+# Vue.js
+
+## Installation :
+
+- 
+  ```sh
+  npm install -g @vue/cli
+  # OR
+  yarn global add @vue/cli
+  ```
+
+creer un projet:
+
+-  
+  ```sh
+  vue create my-project
+  # OR
+  vue ui
+  ```
+
+## Lancement :
+
+```sh
+yarn install
+# AND
+yarn serve
+```
