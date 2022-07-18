@@ -10,9 +10,29 @@ const app = Vue.createApp({
       this.currentUserInput = event.target.value;
     },
     setText() {
-      this.message = this.currentUserInput;
+      // this.message = this.currentUserInput;
+      this.message = this.$refs.userText.value;
     },
   },
 });
 
 app.mount('#app');
+
+// ---
+
+const data = {
+  message: 'Hello',
+  longMessage: 'Someone',
+};
+
+const handler = {
+  set(target, key, value) {
+    console.log('target', target);
+    console.log('key', key);
+    console.log('value', value);
+  },
+};
+
+const proxy = new Proxy(data, handler);
+
+proxy.message = 'Hello !!';
