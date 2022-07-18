@@ -1,4 +1,4 @@
-# Vue.js
+e# Vue.js
 
 ## Installation :
 
@@ -16,6 +16,8 @@ creer un projet:
   vue create my-project
   # OR
   vue ui
+  # OR
+  npm init vue
   ```
 
 ## Lancement :
@@ -24,4 +26,21 @@ creer un projet:
 yarn install
 # AND
 yarn serve
+```
+
+## Components
+
+Notre pemier composant : [FriendContact.vue](src/components/FriendContact.vue)
+
+il est appelé dans [main.js](src/main.js)
+
+```js
+import { createApp } from 'vue';
+import App from './App.vue';
+import FriendContact from './components/FriendContact';
+
+const app = createApp(App);
+
+app.component('friend-contact', FriendContact);
+app.mount('#app');
 ```
