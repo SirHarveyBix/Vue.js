@@ -14,9 +14,37 @@ const app = Vue.createApp({
       this.message = this.$refs.userText.value;
     },
   },
+  beforeCreate() {
+    console.info('#-> beforeCreate() <-#');
+  },
+  created() {
+    console.info('#-> created() <-#');
+  },
+  beforeMount() {
+    console.info('#-> beforeMount() <-#');
+  },
+  mounted() {
+    console.info('#-> mounted() <-#');
+  },
+  beforeUpdate() {
+    console.info('#-> beforeUpdate() <-#');
+  },
+  updated() {
+    console.info('#-> updated() <-#');
+  },
+  beforeUnmount() {
+    console.info('#-> beforeUnmount() <-#');
+  },
+  unmounted() {
+    console.info('#-> unmounted() <-#');
+  },
 });
 
 app.mount('#app');
+setTimeout(() => {
+  app.unmount('#app');
+  console.info('time out : unmounted');
+}, 3000);
 
 // ---
 
