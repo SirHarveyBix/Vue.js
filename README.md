@@ -20,3 +20,5 @@
 **Conditions & Listes : [section 3 - rendering: conditions & listes](section%203%20-%20rendering%3a%20conditions%20&%20listes)**
 
 **Monster Slayer Game : [section 4 - Project - Game](section%204%20-%20Project%20-%20Game)**
+
+**Behind the scenes : [section 5 - behind the scenes](section%205%20-%20behind%20the%20scenes)**
