@@ -50,7 +50,7 @@ export default {
 
 il existe plusieurs moyen de travailler avec les props, du plus simple au plus complexe, en precisant les types 
 
-[FriendContact.vue](./src/components/FriendContact.vue)
+[FriendContact.vue](./project%20-%20friend%20contact/src/components/FriendContact.vue)
 
 ```js
    props: { name: String, phoneNumber: String, emailAddress: String },
@@ -98,7 +98,7 @@ dans un boucle, il faut toujours mieux bind, les eletements entre eux, `:key="fr
 
 il est posssible de changer les valeurs des props, mais ces valeurs doivent etre changées depuis le parent.
 
-dans [FriendContact.vue](./src/components/FriendContact.vue) on recoit `isFavorite`
+dans [FriendContact.vue](./project%20-%20friend%20contact/src/components/FriendContact.vue) on recoit `isFavorite`
 
 ça valeur peut etre changée.
 nous devont utiliser la fonction vue `$emit()`.
