@@ -126,4 +126,49 @@ la fonction "`toogle-favorite`" doit d'abord etre envoyée par le parent, comme 
     />
 ```
 
+## Provide + Inject
 
+il est possible d'acceder a des _props_ sans les passer comme des props, a la maniere de _useContext_ dans react:
+ic on va passer `topics: []` et `activateTopic()`
+
+[app.vue](project%20-%20friend%20contact/src/App.vue)
+
+```js
+export default {
+  data() {
+    return {
+      topics: [
+        {
+          id: 'events',
+          title: 'Events',
+          description: 'Events are important in Vue',
+          fullText: ' Events allow you to trigger code on demand!',
+        },
+      ],
+    }
+  },
+  provide() {
+    return {
+      topics: this.topics,
+      selectTopic: this.activateTopic,
+    }
+  },
+  methods: {
+    activateTopic(topicId) {
+      this.activeTopic = this.topics.find((topic) => topic.id === topicId)
+    },
+  },
+```
+
+ils seront recuperés comme des props :
+
+[KnowledgeElement.vue](./project%20-%20potential%20problem/src/components/KnowledgeElement.vue) & [KnowledgeGrid.vue](./project%20-%20potential%20problem/src/components/KnowledgeGrid.vue)
+
+```js
+export default {
+  inject: ['topics', 'selectTopic'],
+  emits: ['select-topic'],
+};
+```
+
+et pourront etre utilisés comme n'import que autre `props` ou fonction
