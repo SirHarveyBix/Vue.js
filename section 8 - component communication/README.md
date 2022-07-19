@@ -1,46 +1,50 @@
-e# Vue.js
+# Vue.js
 
-## Installation :
+## Props
 
-- 
-  ```sh
-  npm install -g @vue/cli
-  # OR
-  yarn global add @vue/cli
-  ```
+dans le composant parent, les props se passent comme il suit:
 
-creer un projet:
-
--  
-  ```sh
-  vue create my-project
-  # OR
-  vue ui
-  # OR
-  npm init vue
-  ```
-
-## Lancement :
-
-```sh
-yarn install
-# AND
-yarn serve
+```html
+    <friend-contact
+      name="Manuel Lorenz"
+      phone-number="01234 5678 991"
+      email-address="manuel@localhost.me"
+    ></friend-contact
 ```
 
-## Components
+la bonne pratique demande de passer les props en kebab-case, pour autant le camelCase, fonction aussi :
 
-Notre pemier composant : [FriendContact.vue](src/components/FriendContact.vue)
+```html
+    <friend-contact
+      name="Manuel Lorenz"
+      phoneNumber="01234 5678 991"
+      emailAddress="manuel@localhost.me"
+    ></friend-contact
+```
 
-il est appelé dans [main.js](src/main.js)
+le composant enfant, recuperera les prpos se de cette maniere :
 
-```js
-import { createApp } from 'vue';
-import App from './App.vue';
-import FriendContact from './components/FriendContact';
+```html
+<template>
+  <li>
+    <h2>{{ name }}</h2>   <<<
+    <button @click="toogleDetails()">
+      {{ visibleDetails ? "Hide" : "Show" }} Details
+    </button>
+    <ul v-if="visibleDetails">
+      <li><strong>Phone: </strong>{{ phoneNumber }}</li>   <<<
+      <li><strong>Email: </strong>{{ emailAddress }}</li>  <<<
+    </ul>
+  </li>
+</template>
 
-const app = createApp(App);
 
-app.component('friend-contact', FriendContact);
-app.mount('#app');
+<script>
+export default {
+  props: ["name", "phoneNumber", "emailAddress"],   <<<
+  data() {
+    return {
+      visibleDetails: false,
+    }
+  },
 ```
