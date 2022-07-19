@@ -4,15 +4,15 @@
   </header>
   <ul>
     <friend-contact
-      name="Julie Jones"
-      phoneNumber="09876 543 221"
-      emailAddress="julie@localhost.me"
-    ></friend-contact>
-    <friend-contact
-      name="Manuel Lorenz"
-      phone-number="01234 5678 991"
-      email-address="manuel@localhost.me"
-    ></friend-contact>
+      v-for="friend in friends"
+      :key="friend.id"
+      :id="friend.id"
+      :name="friend.name"
+      :phoneNumber="friend.phone"
+      :emailAddress="friend.email"
+      :isFavorite="friend.favorite"
+      @toogle-favorite="toogleFavoriteStatus"
+    />
   </ul>
 </template>
 
@@ -21,20 +21,30 @@ export default {
   data() {
     return {
       friends: [
-        // {
-        //   id: "manuel",
-        //   name: "Manuel Lorenz",
-        //   phone: "01234 5678 991",
-        //   email: "manuel@localhost.me",
-        // },
-        // {
-        //   id: "Julie",
-        //   name: "Julie Jones",
-        //   phone: "09876 543 221",
-        //   email: "julie@localhost.me",
-        // },
+        {
+          id: "manuel",
+          name: "Manuel Lorenz",
+          phone: "01234 5678 991",
+          email: "manuel@localhost.me",
+          favorite: true,
+        },
+        {
+          id: "Julie",
+          name: "Julie Jones",
+          phone: "09876 543 221",
+          email: "julie@localhost.me",
+          favorite: false,
+        },
       ],
     };
+  },
+  methods: {
+    toogleFavoriteStatus(friendId) {
+      const identifiedFriend = this.friends.find(
+        (friend) => friend.id === friendId
+      );
+      identifiedFriend.favorite = !identifiedFriend.favorite;
+    },
   },
 };
 </script>

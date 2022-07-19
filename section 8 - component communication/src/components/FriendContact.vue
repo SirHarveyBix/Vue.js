@@ -1,8 +1,11 @@
 <template>
   <li>
-    <h2>{{ name }}</h2>
+    <h2>{{ name }} {{ isFavorite ? " (favorite)" : "" }}</h2>
     <button @click="toogleDetails()">
       {{ visibleDetails ? "Hide" : "Show" }} Details
+    </button>
+    <button @click="toogleFavorite()">
+      {{ isFavorite ? " Not favorite" : " favorite" }}
     </button>
     <ul v-if="visibleDetails">
       <li><strong>Phone: </strong>{{ phoneNumber }}</li>
@@ -13,21 +16,40 @@
 
 <script>
 export default {
-  props: ["name", "phoneNumber", "emailAddress"],
+  props: {
+    id: { type: String, required: true },
+    name: { type: String, required: true },
+    phoneNumber: { type: String, required: true },
+    emailAddress: { type: String, required: true },
+    isFavorite: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+  },
+  emits: ["toogle-favorite"],
+  // emits: {
+  //   "toogle-favorite": function (id) {
+  //     //validator
+  //     if (id) {
+  //       return true;
+  //     } else {
+  //       console.warn("missing ID");
+  //       return false;
+  //     }
+  //   },
+  // },
   data() {
     return {
       visibleDetails: false,
-      friend: {
-        id: "manuel",
-        name: "Manuel Lorenz",
-        phone: "01234 5678 991",
-        email: "manuel@localhost.me",
-      },
     };
   },
   methods: {
     toogleDetails() {
       this.visibleDetails = !this.visibleDetails;
+    },
+    toogleFavorite() {
+      this.$emit("toogle-favorite", this.id);
     },
   },
 };
