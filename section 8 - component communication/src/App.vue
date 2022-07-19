@@ -2,6 +2,7 @@
   <header>
     <h1>My Friends</h1>
   </header>
+  <new-friend @add-contact="addContact"></new-friend>
   <ul>
     <friend-contact
       v-for="friend in friends"
@@ -12,6 +13,7 @@
       :emailAddress="friend.email"
       :isFavorite="friend.favorite"
       @toogle-favorite="toogleFavoriteStatus"
+      @delete="deleteContact"
     />
   </ul>
 </template>
@@ -44,6 +46,19 @@ export default {
         (friend) => friend.id === friendId
       );
       identifiedFriend.favorite = !identifiedFriend.favorite;
+    },
+    addContact(name, phone, email) {
+      const newFriendContact = {
+        id: new Date().toISOString(),
+        name: name,
+        phone: phone,
+        email: email,
+        favorite: false,
+      };
+      this.friends.push(newFriendContact);
+    },
+    deleteContact(friendId) {
+      this.friends = this.friends.filter((friend) => friend.id !== friendId); // filtre friends creer un nouveau [] sans l'element
     },
   },
 };

@@ -11,6 +11,7 @@
       <li><strong>Phone: </strong>{{ phoneNumber }}</li>
       <li><strong>Email: </strong>{{ emailAddress }}</li>
     </ul>
+    <button @click="$emit('delete', id)">Delete</button>
   </li>
 </template>
 
@@ -27,18 +28,7 @@ export default {
       default: false,
     },
   },
-  emits: ["toogle-favorite"],
-  // emits: {
-  //   "toogle-favorite": function (id) {
-  //     //validator
-  //     if (id) {
-  //       return true;
-  //     } else {
-  //       console.warn("missing ID");
-  //       return false;
-  //     }
-  //   },
-  // },
+  emits: ["toogle-favorite", "delete"],
   data() {
     return {
       visibleDetails: false,
@@ -51,6 +41,9 @@ export default {
     toogleFavorite() {
       this.$emit("toogle-favorite", this.id);
     },
+    // deleteFriend() {
+    //   this.$emit("delete", this.id);
+    // },
   },
 };
 </script>
