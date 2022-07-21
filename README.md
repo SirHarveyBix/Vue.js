@@ -27,15 +27,8 @@
 
 **Developpement setup : [section 7 - developpement setup](section%207%20-%20developpement%20setup)**
 
-
-# Vue.js
-
-## Installation :
-
 - 
   ```sh
-  npm install -g @vue/cli
-  # OR
   yarn global add @vue/cli
   ```
 
@@ -46,12 +39,10 @@ creer un projet:
   vue create my-project
   # OR
   vue ui
+  # OR
+  npm init vue
   ```
 
-## Lancement :
+**Component Communication : [section 8 - component communication](section%208%20-%20component%20communication)**
 
-```sh
-yarn install
-# AND
-yarn serve
-```
+**Diving Into Components : [section 9 - Diving Deeper Into Components](section%209%20-%20Diving%20Deeper%20Into%20Components)**
