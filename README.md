@@ -45,4 +45,29 @@ creer un projet:
 
 **Component Communication : [section 8 - component communication](section%208%20-%20component%20communication)**
 
+[App.vue](./section%208%20-%20component%20communication/project%20-%20potential%20problem/src/App.vue) (friend contact)
+
+- 
+  ```js
+  provide() {
+    return {
+      topics: this.topics,
+      selectTopic: this.activateTopic,
+    }
+  },
+  inject: ['selectTopic', 'topics'],
+  ```
+
+[App.vue](./section%208%20-%20component%20communication/project%20-%20friend%20contact/src/App.vue) (potential problem)
+
+- 
+  ```js
+  props: {
+    id: { type: String, required: true }
+  },
+  ```
+
+
 **Diving Into Components : [section 9 - Diving Deeper Into Components](section%209%20-%20Diving%20Deeper%20Into%20Components)**
+
+`<style scoped>`
