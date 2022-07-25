@@ -23,7 +23,7 @@ les composants en camelCase peuvent s'afficher : `<BadgeList />`, ceux en kebab-
 
 ## Slots.
 
-nous avons creer deux slots dans [Basecard.vue](./src/components/BaseCard.vue)
+nous avons creer deux slots dans [Basecard.vue](./src/components/UI/BaseCard.vue)
 
 ```html
 <template>
@@ -72,3 +72,12 @@ voici comment l'appeler dans **[App.vue](./src/App.vue)**
 
 il ya 2 types de _slots_, les 'anonymes', et les 'només'
 ici on recuperer les deux props de [CourseGoals.vue](./src/components/CourseGoals.vue), `goalItem` & `anotherProp` via la propriété **`slotProps`**, c'est un autre moyen de propager les props, sans passer le `<script>`, ou comme vu plus haut, partager le style
+
+## Teleport.
+
+la balise teleport permet de deplacer des elements HTML dasn les noeuds du DOM,
+ici on indique deplacer l'element a la racine de la balise `<body>`, plutot qu'inbriqué dans les noeuds HTML du projet
+
+```html
+  <teleport to="body">
+```
