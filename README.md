@@ -67,7 +67,10 @@ creer un projet:
   },
   ```
 
-
 **Diving Into Components : [section 9 - Diving Deeper Into Components](section%209%20-%20Diving%20Deeper%20Into%20Components)**
 
-`<style scoped>`
+- `<style scoped>`
+- `<slot :goalItem="goal" anotherProp=" ... "></slot>`
+- `<teleport to="body">`
+
+**Projet : [section 10 - Projet](section%2010%20-%20Projet)**
