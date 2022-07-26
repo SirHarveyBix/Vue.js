@@ -13,11 +13,12 @@
 
 <script>
 import LearningResourcesVue from "./LearningResources.vue";
+
 export default {
   components: {
     "learning-resources": LearningResourcesVue,
   },
-  props: ["resources"],
+  inject: ["resources"], // from TheResources.vue
 };
 </script>
 
